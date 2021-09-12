@@ -6,7 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'flutter first app',
+      title: 'character card',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: MyHome(),
     );
@@ -18,14 +18,19 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First App'),
+        title: Text('Card'),
+        centerTitle: true,
+        backgroundColor: Colors.orange,
+        elevation: 0.0,
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Hi'),
-            Text('Hi'),
-            Text('Hi'),
+            Text('dsd'),
+            Text('dsd'),
+            Text('dsd'),
+            Text('dsd'),
           ],
         ),
       ),
