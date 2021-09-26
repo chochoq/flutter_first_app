@@ -18,7 +18,7 @@ class Grade extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.green[300],
       appBar: AppBar(
-        title: Text('card'),
+        title: const Text('CARD'),
         backgroundColor: Colors.green[900],
         centerTitle: true,
         elevation: 0.0,
@@ -66,15 +66,6 @@ class Grade extends StatelessWidget {
                   letterSpacing: 2.0,
                   fontSize: 28.0,
                   fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children: [
-                Icon(Icons.check_circle_outline),
-                Text(
-                  'using lightsaber',
-                  style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                ),
-              ],
             ),
           ],
         ),
