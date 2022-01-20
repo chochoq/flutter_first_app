@@ -3,138 +3,100 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'card',
-      home: Grade(),
+      title: "My App",
+      theme: ThemeData(primarySwatch: Colors.amber),
+      home: MyPage(),
     );
   }
 }
 
-class Grade extends StatelessWidget {
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[300],
       appBar: AppBar(
-        title: const Text('CARD'),
-        backgroundColor: Colors.green[900],
+        title: Text("my page"),
         centerTitle: true,
-        elevation: 0.0,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              print('dd');
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              print('dd');
+            },
+          )
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('chocho'),
+              accountEmail: Text('mail.com'),
+              currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/1.png'),
-                radius: 60.0,
+                backgroundColor: Colors.white,
               ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-              thickness: 0.6,
-              endIndent: 30.0,
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'character',
-              style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              'Character POWER LEVEL',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '14',
-              style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(Icons.check_circle_outline),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text('using lightsaber',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      letterSpacing: 1.0,
-                    )),
+              otherAccountsPictures: [
+                CircleAvatar(
+                    backgroundImage: AssetImage('assets/1.png'), backgroundColor: Colors.white),
+                // CircleAvatar(
+                //     backgroundImage: AssetImage('assets/1.png'), backgroundColor: Colors.white),
               ],
+              onDetailsPressed: () {
+                print('dd');
+              },
+              decoration: BoxDecoration(
+                  color: Colors.red[200],
+                  borderRadius: BorderRadius.only(
+                    // bottomLeft: Radius.circular(40.0),
+                    bottomRight: Radius.circular(40.0),
+                  )),
             ),
-            SizedBox(
-              height: 5.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(Icons.check_circle_outline),
-                SizedBox(
-                  width: 5.0,
-                ),
-                Text('face hero tattoo',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      letterSpacing: 1.0,
-                    )),
-              ],
-            ),
-            SizedBox(
-              height: 5.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(Icons.check_circle_outline),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text('fire flames',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      letterSpacing: 1.0,
-                    )),
-              ],
-            ),
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/2.png'),
-                radius: 40.0,
-                backgroundColor: Colors.green[800],
+            ListTile(
+              leading: Icon(
+                Icons.accessibility_new_rounded,
+                color: Colors.green[200],
               ),
-            )
+              title: Text('home'),
+              onTap: () {
+                print('home on tap');
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.battery_saver_sharp,
+                color: Colors.green[200],
+              ),
+              title: Text('바뗴리'),
+              onTap: () {
+                print('바ㅔ리 on tap');
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.add_reaction,
+                color: Colors.green[200],
+              ),
+              title: Text('smile'),
+              onTap: () {
+                print('스일 on tap');
+              },
+            ),
           ],
         ),
       ),
